@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Login</title>
+    <link rel="stylesheet" href="style2.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+    <header class="Navbar">
+       <!-- <a href="./index2.html"> -->
+        <div class="logo logo-image"></div>
+      <!-- </a> -->
+    <a  href="./index2.html">Cantina</a>
+      <ul>
+       
+        <li><a class="active" href="./login2.html">Login</a></li>
+        <li><a href="./register.html">Register</a></li>
+      </ul>
+    </header>
+
+    <div class = "Container">
+        <div class="wrapper">
+            <h1>SIGN IN</h1>
+            <form class="Form" onsubmit="return validateForm()">
+                <label for="email"><b>Email:</b></label><br>
+                <input type="email" id="email" name="email"><span id="emailError" class="error"></span><br><br>
+                <label for="password"><b>Password:</b></label><br>
+                <input type="password" id="password" name="password"><span id="passwordError" class="error"></span><br><br>
+                <button>LOGIN</button>
+                <a href="./register.html"><h3>Don't have an account? Register here</h3></a>
+              </form>
+        </div>
+    </div>
+
+    <footer>
+      <div class="footer-column">
+        <h3>About Us</h3>
+        <ul>
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">The Team</a></li>
+          <li><a href="#">Jobs</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Menu</h3>
+        <ul>
+          <li><a href="#">Food</a></li>
+          <li><a href="#">Drinks</a></li>
+          <li><a href="#">Specials</a>
+            <ul>
+              <li><a href="#">Happy Hour</a></li>
+              <li><a href="#">Daily Specials</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Contact Us</h3>
+        <ul>
+          <li>Dorobantilor FN St.</li>
+          <li>Cluj-Napoca, RO</li>
+          <li>0742 222 222</li>
+          <li><a href="#">cantina@example.ro</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- formValidation has register fields and needs a property for login to work -->
+    <!-- <script src="formValidation.js"></script> -->
+
+
+    <script>
+        function validateForm() {
+          var email = document.getElementById("email").value;
+          var password = document.getElementById("password").value;
+          var emailError = document.getElementById("emailError");
+          var passwordError = document.getElementById("passwordError");
+          
+          var emailRegex = /^\S+@\S+\.\S+$/;
+          var passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+          
+          var isValid = true;
+          
+          if (!emailRegex.test(email)) {
+            emailError.innerHTML = "Invalid email address";
+            isValid = false;
+          } else {
+            emailError.innerHTML = "";
+          }
+          
+          if (!passwordRegex.test(password)) {
+            passwordError.innerHTML = "Invalid password (minimum 8 characters, at least one uppercase letter, one lowercase letter, and one number)";
+            isValid = false;
+          } else {
+            passwordError.innerHTML = "";
+          }
+          
+          return isValid;
+        }
+        </script>
+    
+    <script>
+      // Add event listeners to input fields
+      var emailInput = document.getElementById("email");
+      var passwordInput = document.getElementById("password");
+      
+      emailInput.addEventListener("input", validateEmail);
+      passwordInput.addEventListener("input", validatePassword);
+      
+      function validateEmail() {
+        var email = emailInput.value;
+        var emailError = document.getElementById("emailError");
+        var emailRegex = /^\S+@\S+\.\S+$/;
+      
+        if (!emailRegex.test(email)) {
+          emailError.innerHTML = "Invalid email address";
+          emailInput.classList.remove("valid");
+          emailInput.classList.add("error");
+        } else {
+          emailError.innerHTML = "";
+          emailInput.classList.remove("error");
+          emailInput.classList.add("valid");
+        }
+      }
+      
+      function validatePassword() {
+        var password = passwordInput.value;
+        var passwordError = document.getElementById("passwordError");
+        var passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+      
+        if (!passwordRegex.test(password)) {
+          passwordError.innerHTML = "Invalid password (minimum 8 characters, at least one uppercase letter, one lowercase letter, and one number)";
+          passwordInput.classList.remove("valid");
+          passwordInput.classList.add("error");
+        } else {
+          passwordError.innerHTML = "";
+          passwordInput.classList.remove("error");
+          passwordInput.classList.add("valid");
+        }
+      }
+      </script>
+</body>
+</html>

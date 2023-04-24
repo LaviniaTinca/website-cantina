@@ -1,0 +1,204 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+
+  .Navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    /* background-color: beige; */
+    background: linear-gradient(15deg,  #fff, beige);
+
+  }
+  
+  .Navbar ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    flex-grow: 1;
+    justify-content: flex-end;
+    /* font-size: large; */
+  }
+  
+  .Navbar li {
+    margin-right: 20px;
+    padding: 20px 24px;
+  }
+  
+  .Navbar li:last-child {
+    margin-right: 0;
+  }
+  
+  .Navbar a {
+    color: #333;
+    text-align: center;
+    padding: 16px 20px;
+    text-decoration: none;
+  }
+  
+  .Navbar a:hover:not(.active):not(.logo):not(.logo-image) {
+    background-color: rgb(237, 237, 154);
+    color: rgb(9, 55, 9);
+  }
+  
+  
+  .Navbar .active {
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    padding: 20px 24px;
+  }
+
+  .Navbar .logo {
+    width: 100px;
+    height: 80px;
+    background-image: url("public/assets/logo2.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* transform: scale(1.2); */
+    transform: rotate(45deg) scale(1.2);
+    margin-right: 10px;
+    display: inline-block;
+  }
+  .Navbar .logo:hover {
+    background-color: transparent;
+
+}
+
+  /* FOOTER  */
+    /* Footer style */
+    footer {
+        background-color: beige;
+        color: #333;
+        padding: 80px;
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        text-align: center;
+
+    }
+
+    .footer-column {
+        width: 30%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .footer-column:last-child {
+        margin-right: 0;
+    }
+
+    .footer-column h3 {
+        margin-bottom: 20px;
+    }
+
+    footer ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer ul li {
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    footer a {
+        color: #333;
+        text-decoration: none;
+    }
+
+    footer a:hover {
+        color: #555;
+    }
+
+    /* login container */
+
+    .Container{
+        width: cover;
+        height: 97vh;
+
+        padding: 20px;
+        gap: 20px;
+        align-items: center;
+        background: linear-gradient(
+            rgba(255, 255, 255, 0.4),
+            rgba(255, 255, 255, 0.4)
+          ),
+          url("https://cdn8.dissolve.com/p/D2115_120_316/D2115_120_316_1200.jpg")
+            center;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .wrapper{
+        width: 25%;
+        padding: 20px;
+        background-color: transparent;
+    }
+    
+    .Container h1{
+        font-size: 24px;
+        font-weight:700;
+    }
+    
+    .Form{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .Container input{
+        flex: 1;
+        min-width: 40%;
+        margin: 10px 0;
+        padding: 10px;
+        background-color: transparent;
+    }
+    
+    .Container button{
+        width: 40%;
+        border: none;
+        padding: 15px 20px;
+        background-color: #008080;
+        color: white;
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+    
+    .Container  a {
+        margin: 5px 0px;
+        font-size: 14px;
+        text-decoration: underline;
+        cursor: pointer;
+        color: teal;
+    }
+    
+    .Container button:hover {
+        background-color: #067a65;
+      }
+
+    /* validate forms*/
+    .error {
+        color: red;
+        margin-left: 10px;
+      }
+      .valid {
+        color: green;
+        margin-left: 10px;
+      }

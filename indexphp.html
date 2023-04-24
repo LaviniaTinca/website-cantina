@@ -1,0 +1,33 @@
+<?php
+// Connect to database and retrieve summary data for the menu
+// Replace this with your own database connection and query code
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "mydb";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+	die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT COUNT(*) AS num_items, MIN(price) AS min_price, MAX(price) AS max_price FROM menu_items";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+	$row = $result->fetch_assoc();
+	$num_items = $row["num_items"];
+	$min_price = $row["min_price"];
+	$max_price = $row["max_price"];
+} else {
+	$num_items = 0;
+	$min_price = 0;
+	$max_price = 0;
+}
+
+$conn->close();
+?>
+
+<p>Our menu currently has <?php echo $num_items; ?> items.</p>
+<p>The cheapest item is $<?php echo number_format($min_price, 2); ?> and the most expensive item is $<?php echo number_format($max_price, 2); ?>.</p>
